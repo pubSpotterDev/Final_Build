@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="lib" path="lib/apache-el-8.0.9.M3.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/apache-jsp-8.0.9.M3.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/apache-jsp-9.3.8.v20160314.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/ecj-4.6.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/javax.annotation-api-1.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/javax.servlet_3.1.0.v201410161800.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/javax.servlet.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/javax.servlet.jsp.jstl-1.2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jetty-annotations-9.4.12.v20180830.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jetty-jndi-9.4.12.v20180830.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jetty-jsp-9.2.21.v20170120.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jetty-plus-9.4.12.v20180830.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jstl-1.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.eclipse.jetty.continuation_9.4.5.v20170502.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.eclipse.jetty.http_9.4.5.v20170502.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.eclipse.jetty.io_9.4.5.v20170502.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.eclipse.jetty.security_9.4.5.v20170502.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.eclipse.jetty.server_9.4.5.v20170502.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.eclipse.jetty.servlet_9.4.5.v20170502.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.eclipse.jetty.util_9.4.5.v20170502.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.eclipse.jetty.webapp_9.4.5.v20170502.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.eclipse.jetty.xml_9.4.5.v20170502.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/asm-3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.objectweb.asm-3.2.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="sqlite-jdbc-3.20.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="gson-2.2.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/apache-el-8.0.9.M3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/apache-jsp-8.0.9.M3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/apache-jsp-9.3.8.v20160314.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/asm-3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/ecj-4.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/javax.annotation-api-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/javax.servlet.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/javax.servlet.jsp.jstl-1.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/javax.servlet_3.1.0.v201410161800.jar" sourcepath="lib/javax.servlet_3.1.0.v201410161800.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/jetty-annotations-9.4.12.v20180830.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/jetty-jndi-9.4.12.v20180830.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/jetty-jsp-9.2.21.v20170120.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/jetty-plus-9.4.12.v20180830.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/jetty-util-8.1.9.v20130131.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/org.eclipse.jetty.continuation_9.4.5.v20170502.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/org.eclipse.jetty.http_9.4.5.v20170502.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/org.eclipse.jetty.io_9.4.5.v20170502.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/org.eclipse.jetty.security_9.4.5.v20170502.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/org.eclipse.jetty.server_9.4.5.v20170502.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/org.eclipse.jetty.servlet_9.4.5.v20170502.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/org.eclipse.jetty.util_9.4.5.v20170502.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/org.eclipse.jetty.webapp_9.4.5.v20170502.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/org.eclipse.jetty.xml_9.4.5.v20170502.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amylo/Documents/Advanced Programming/Final_Assignment/lib/org.objectweb.asm-3.2.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
