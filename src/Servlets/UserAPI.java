@@ -8,23 +8,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
-import Models.Pub;
-import Models.PubDAO;
+import Models.User;
+import Models.UserDAO;
 
-public class API extends HttpServlet{
+
+public class UserAPI extends HttpServlet{
 	
 	private static final long serialVersionUID =1L;
 	
-	PubDAO dao = new PubDAO();
+	UserDAO dao = new UserDAO();
 	Gson gson = new Gson();
 	PrintWriter writer;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
-		ArrayList<Pub> allPubs = dao.getAllPubs();
+		ArrayList<User> allUsers = dao.getAllUsers();
 		resp.setContentType("application/json");
 		writer = resp.getWriter();
-		String pubJSON = gson.toJson(allPubs);
+		String pubJSON = gson.toJson(allUsers);
 		writer.write(pubJSON);
 		writer.close();
 	}
@@ -34,18 +35,19 @@ public class API extends HttpServlet{
 		writer = resp.getWriter();
 		resp.setContentType("text/html;charset=UTF-8");
 		
-		Integer pub_id = Integer.parseInt(req.getParameter("pub_id"));
-		String name = req.getParameter("name");
-		String streetname = req.getParameter("streetname"); 
-		String postcode = req.getParameter("postcode"); 
-			
-		Pub in = new Pub(pub_id,name,streetname,postcode);
 		
-		System.out.println(in.getPub_id() + " " + in.getName() + " " +  in.getStreetName() + " "  +  in.getPostCode());
+		String email = req.getParameter("email");
+		String name = req.getParameter("name");
+		String gender = req.getParameter("gender"); 
+		String dob = req.getParameter("dob");
+		Integer id = Integer.parseInt(req.getParameter("id"));
+		Integer points = Integer.parseInt(req.getParameter("points"));
+			
+		User in = new User(id,name,gender,dob,email,points);
 		
 		Boolean inserted = true;
 		try {
-			inserted = dao.insertPub(in);
+			inserted = dao.insertUser(in);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -53,7 +55,7 @@ public class API extends HttpServlet{
 		
 		if(inserted)
 		{
-			writer.write("New Vehicle Inserted");
+			writer.write("New User Inserted");
 		}
 		else
 		{
@@ -65,20 +67,22 @@ public class API extends HttpServlet{
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException,IOException
 	{
-		int pub_id = Integer.parseInt(req.getParameter("pub_id"));
+		String email = req.getParameter("email");
 		String name = req.getParameter("name");
-		String streetname =  req.getParameter("streetname");
-		String postcode =  req.getParameter("postcode");
+		String gender =  req.getParameter("gender");
+		String dob =  req.getParameter("dob");
+		int id = Integer.parseInt(req.getParameter("id"));
+		int points = Integer.parseInt(req.getParameter("points"));
 		
-		PubDAO dao = new PubDAO();
+		UserDAO dao = new UserDAO();
 		
-		Pub in = new Pub(pub_id,name,streetname,postcode);
+		User in = new User(id,name,gender,dob,email,points);
 		
-		System.out.println(in.getPub_id() + " " + in.getName() + " " +  in.getStreetName() + " "  +  in.getPostCode());
+		System.out.println(in.getId() + " " + in.getEmail() + " " +  in.getName() + " "  +  in.getGender() + in.getDob() + " " + in.getPoints());
 		
 		boolean update = false;
 		try {
-			update = dao.updatePub(in, pub_id);
+			update = dao.updateUser(in, id);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -86,27 +90,26 @@ public class API extends HttpServlet{
 
 		if(update)
 		{
-			writer.write("Pub Updated");
+			writer.write("User Updated");
 		}
 		else
 		{
 			writer.write("Error");
 		}
 		writer.close();		
-	
 	}
 	
 	@Override
 	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException,IOException
 	{
-		Integer pub_id = Integer.parseInt(req.getParameter("delete")); //request parameter delete
+		Integer id = Integer.parseInt(req.getParameter("delete")); //request parameter delete
 		
 		Boolean delete = false;
-		delete = dao.deletePub(pub_id); //if boolean done is called carry out the method delete vehicle from dao class using ID
+		delete = dao.deleteUser(id); //if boolean done is called carry out the method delete vehicle from dao class using ID
 		
 		if(delete)
 		{
-			writer.write("Pub Deleted");
+			writer.write("User Deleted");
 		}
 		else
 		{

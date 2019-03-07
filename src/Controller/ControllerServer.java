@@ -26,6 +26,7 @@ public class ControllerServer
 //		ctx.addServlet("servlets.ServletAdd", "/add"); //Display new vehicle page
 //		ctx.addServlet("servlets.ServletSearch", "/search"); //Display vehicle by ID
 		ctx.addServlet("Servlets.API" , "/api"); //API
+		ctx.addServlet("Servlets.UserAPI" , "/userapi"); //User API
 		
 	//Setting the handler and starting the Server
 		server.setHandler(ctx); //Set the handler to the new web app context ctx variable
