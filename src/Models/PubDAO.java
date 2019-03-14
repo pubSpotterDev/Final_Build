@@ -180,7 +180,7 @@ public class PubDAO {
 		Connection dbConnection = null;
 		Statement statement = null;		
 
-		String query = "INSERT INTO Pubs ('name', 'street name', 'post code') "
+		String query = "INSERT INTO Pubs ('name', 'street_name', 'postcode') "
 
 				+ "VALUES("+
 
