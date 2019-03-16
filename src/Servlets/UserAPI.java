@@ -42,8 +42,9 @@ public class UserAPI extends HttpServlet{
 		String dob = req.getParameter("dob");
 		Integer id = Integer.parseInt(req.getParameter("id"));
 		Integer points = Integer.parseInt(req.getParameter("points"));
+		String password = req.getParameter("password");
 			
-		User in = new User(id,name,gender,dob,email,points);
+		User in = new User(id,name,gender,dob,email,points,password);
 		
 		Boolean inserted = true;
 		try {
@@ -73,12 +74,13 @@ public class UserAPI extends HttpServlet{
 		String dob =  req.getParameter("dob");
 		int id = Integer.parseInt(req.getParameter("id"));
 		int points = Integer.parseInt(req.getParameter("points"));
+		String password =  req.getParameter("password");
 		
 		UserDAO dao = new UserDAO();
 		
-		User in = new User(id,name,gender,dob,email,points);
+		User in = new User(id,name,gender,dob,email,points,password);
 		
-		System.out.println(in.getId() + " " + in.getEmail() + " " +  in.getName() + " "  +  in.getGender() + in.getDob() + " " + in.getPoints());
+		System.out.println(in.getId() + " " + in.getEmail() + " " +  in.getName() + " "  +  in.getGender() + in.getDob() + " " + in.getPoints()+ " " + in.getPassword());
 		
 		boolean update = false;
 		try {
