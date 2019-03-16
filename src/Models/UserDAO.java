@@ -1,4 +1,6 @@
 package Models;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -6,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import javax.xml.bind.DatatypeConverter;
 
 public class UserDAO {
 
@@ -42,13 +46,14 @@ public class UserDAO {
 				
 			while(rs.next())
 			{
-				User u=new User(0, SelectAll, SelectAll,  SelectAll, SelectAll, 0);
+				User u=new User(0, SelectAll, SelectAll,  SelectAll, SelectAll, 0, SelectAll);
 					u.setId(rs.getInt(1));
 					u.setEmail(rs.getString(2));
 					u.setName(rs.getString(3));
 					u.setDob(rs.getString(4));
 					u.setGender(rs.getString(5));
 					u.setPoints(rs.getInt(6));
+					u.setPassword(rs.getString(7));
 					list.add(u);
 			}
 			con.close();
@@ -56,8 +61,56 @@ public class UserDAO {
 		return list;
 	}	
 	
+	public Boolean checkPassword(String name, String pass) throws SQLException {
+		System.out.println("Retreiving Users....");
+		Connection dbConnection = null;
+		Statement statement = null;
+		ResultSet result = null;
+		boolean correct = false;
+
+		String query = "SELECT * FROM users;";
+		try {
+			dbConnection = getDBConnection();
+			statement = dbConnection.createStatement();
+			System.out.println("DBQuery = " + query);
+			result = statement.executeQuery(query);
+			while (result.next()) {// loops through all the users to find if the password and username match any
+									// from the database
+				String email = result.getString("email");
+				String password = result.getString("password");
+				// turns the password into a hash using md5 so it can be compared to the hashed
+				// password from the web front end
+				try {
+					MessageDigest md = MessageDigest.getInstance("MD5");
+					md.update(password.getBytes());
+					byte[] digest = md.digest();
+					String password2 = DatatypeConverter.printHexBinary(digest).toUpperCase();
+					// compares the hash from the front end to the hashed version from the database
+					if (email.equals(name) && password2.equals(pass)) {
+						correct = true;
+					}
+				} catch (NoSuchAlgorithmException e1) {
+					e1.printStackTrace();
+				}
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (result != null) {
+				result.close();
+			}
+			if (statement != null) {
+				statement.close();
+			}
+			if (dbConnection != null) {
+				dbConnection.close();
+			}
+		}
+		return correct;
+	}
+	
 	public User getUserById(int ID) {
-		User u=new User(ID, null, null, null, null, ID);
+		User u=new User(ID, null, null, null, null, ID, null);
 		
 		try{
 			Connection con= UserDAO.getDBConnection();
@@ -70,7 +123,8 @@ public class UserDAO {
 				u.setName(rs.getString(3));
 				u.setDob(rs.getString(4));
 				u.setGender(rs.getString(5));
-				u.setPoints(rs.getInt(6));		
+				u.setPoints(rs.getInt(6));
+				u.setPassword(rs.getString(7));
 			}
 			con.close();
 		}catch(Exception ex){ex.printStackTrace();}
@@ -78,7 +132,6 @@ public class UserDAO {
 	}
 	
 	public Boolean deleteUser(int id)
-		
 		{
 			Connection dbConnection = null;
 			PreparedStatement DeleteUserID= null;
@@ -131,7 +184,6 @@ public class UserDAO {
 					} 
 				}
 		}
-	
 		if (result == 1) //if result is equal to 1 
 		{	
 			return true; //return true
@@ -140,7 +192,6 @@ public class UserDAO {
 		{
 			return false; //return false
 		}
-		
 	}	
 			
 	public Boolean updateUser(User u, int id) throws SQLException{
@@ -155,18 +206,15 @@ public class UserDAO {
 				"gender ="+"\""+u.getGender()+"\","+
 				"dob ="+"\""+u.getDob()+"\","+
 				"points ="+"\""+u.getPoints()+"\""+
+				"password ="+"\""+u.getPassword()+"\""+
 				"WHERE id ="+id+";";
-		
 		try {
 			dbConnection = getDBConnection();
 			statement = dbConnection.createStatement();
 			System.out.println("DBQuery = "+query);
 			update = statement.execute(query);			
-
 		}catch (SQLException e) {
-
 			System.out.println(e.getMessage());
-
 		}finally {
 			if(statement != null) {statement.close();
 			}
@@ -182,13 +230,14 @@ public class UserDAO {
 		Connection dbConnection = null;
 		Statement statement = null;		
 
-		String query = "INSERT INTO users ('email', 'name', 'gender', 'dob', 'points') "
+		String query = "INSERT INTO users ('email', 'name', 'gender', 'dob', 'points', password') "
 				+ "VALUES("+
 				"\""+u.getEmail()+"\","+
 				"\"" + u.getName()+"\","+
 				"\""+u.getGender()+"\","+
 				"\""+u.getDob()+"\","+
-				"\""+u.getPoints()+"\");";
+				"\""+u.getPoints()+"\","+
+				"\""+u.getPassword()+"\");";
 		try {
 			dbConnection = getDBConnection();
 			statement = dbConnection.createStatement();
