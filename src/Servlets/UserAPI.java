@@ -44,7 +44,7 @@ public class UserAPI extends HttpServlet{
 		Integer points = Integer.parseInt(req.getParameter("points"));
 		String password = req.getParameter("password");
 			
-		User in = new User(id,name,gender,dob,email,points,password);
+		User in = new User(id,email,name,gender,dob,points,password);
 		
 		Boolean inserted = true;
 		try {
