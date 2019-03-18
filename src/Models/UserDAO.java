@@ -230,7 +230,7 @@ public class UserDAO {
 		Connection dbConnection = null;
 		Statement statement = null;		
 
-		String query = "INSERT INTO users ('email', 'name', 'gender', 'dob', 'points', password') "
+		String query = "INSERT INTO users ('email', 'name', 'gender', 'dob', 'points', 'password') "
 				+ "VALUES("+
 				"\""+u.getEmail()+"\","+
 				"\"" + u.getName()+"\","+
