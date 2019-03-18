@@ -9,6 +9,8 @@ import Models.UserDAO;
 
 public class Controller {
 	
+	private static final String password = null;
+
 	public static void main(String[] args) throws Exception {
 		
 		
@@ -210,7 +212,7 @@ public class Controller {
 		String dob = scan.next();
 		int points = 10; // default amount on creation
 		//temp User made with the new values which are then added to database
-		User temp = new User(user_id, email, name,dob , gender, points);
+		User temp = new User(user_id, email, name,dob , gender, points, password);
 		dao.insertUser(temp);
 		System.out.println("-------------------------");
 	}
@@ -232,7 +234,7 @@ public class Controller {
 		System.out.println("Enter DOB : ");
 		String dob = scan.next();
 		int points = 0;
-		User u = new User(id, email, name, dob, gender, points);					
+		User u = new User(id, email, name, dob, gender, points, password);					
 		System.out.println(dao.updateUser(u, id));
 		System.out.println("-------------------------");
 	}
