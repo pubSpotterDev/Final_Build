@@ -205,7 +205,7 @@ public class UserDAO {
 				"name ="+"\""+u.getName()+"\","+
 				"gender ="+"\""+u.getGender()+"\","+
 				"dob ="+"\""+u.getDob()+"\","+
-				"points ="+"\""+u.getPoints()+"\""+
+				"points ="+"\""+u.getPoints()+"\","+
 				"password ="+"\""+u.getPassword()+"\""+
 				"WHERE id ="+id+";";
 		try {

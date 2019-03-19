@@ -78,7 +78,7 @@ public class UserAPI extends HttpServlet{
 		
 		UserDAO dao = new UserDAO();
 		
-		User in = new User(id,name,gender,dob,email,points,password);
+		User in = new User(id,email,name,gender,dob,points,password);
 		
 		System.out.println(in.getId() + " " + in.getEmail() + " " +  in.getName() + " "  +  in.getGender() + in.getDob() + " " + in.getPoints()+ " " + in.getPassword());
 		
